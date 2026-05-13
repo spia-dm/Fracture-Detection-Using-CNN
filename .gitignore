@@ -1,0 +1,29 @@
+# Project
+archive/
+dl/dataset/
+dl/models/
+*.pth
+*.zip
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+.ipynb_checkpoints/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+.turbo/
+*.tsbuildinfo
+next-env.d.ts
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+.claude/
