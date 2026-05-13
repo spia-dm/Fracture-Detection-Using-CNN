@@ -2,15 +2,15 @@ import { Reveal } from "@/components/Reveal";
 
 export function Abstract() {
   return (
-    <section id="abstract" className="relative px-6 py-32 sm:py-40 lg:px-12">
-      <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-12">
+    <section id="abstract" className="relative px-5 py-20 sm:px-6 sm:py-28 lg:px-12 lg:py-40">
+      <div className="mx-auto grid max-w-7xl gap-8 sm:gap-12 lg:gap-16 lg:grid-cols-12">
         <Reveal className="lg:col-span-3">
           <SectionLabel n="01" label="Abstract" />
         </Reveal>
 
-        <div className="space-y-8 lg:col-span-9">
+        <div className="min-w-0 space-y-6 sm:space-y-8 lg:col-span-9">
           <Reveal>
-            <p className="font-serif text-3xl leading-snug tracking-tight text-foreground sm:text-4xl">
+            <p className="font-serif text-2xl leading-snug tracking-tight text-foreground sm:text-3xl md:text-4xl">
               Bone fractures are extremely common and can usually be treated
               properly only with timely, accurate diagnosis.
             </p>
@@ -64,7 +64,7 @@ export function Abstract() {
 
 export function SectionLabel({ n, label }: { n: string; label: string }) {
   return (
-    <div className="sticky top-32 flex items-baseline gap-3 text-xs uppercase tracking-[0.3em] text-foreground/40">
+    <div className="lg:sticky lg:top-32 flex items-baseline gap-3 text-xs uppercase tracking-[0.3em] text-foreground/40">
       <span className="font-mono text-foreground/30">{n}</span>
       <span>/</span>
       <span>{label}</span>

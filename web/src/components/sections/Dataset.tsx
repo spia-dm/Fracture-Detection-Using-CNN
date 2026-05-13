@@ -10,15 +10,15 @@ export function Dataset() {
   ];
 
   return (
-    <section id="dataset" className="relative px-6 py-32 sm:py-40 lg:px-12">
-      <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-12">
+    <section id="dataset" className="relative px-5 py-20 sm:px-6 sm:py-28 lg:px-12 lg:py-40">
+      <div className="mx-auto grid max-w-7xl gap-8 sm:gap-12 lg:gap-16 lg:grid-cols-12">
         <Reveal className="lg:col-span-3">
           <SectionLabel n="02" label="Dataset" />
         </Reveal>
 
-        <div className="space-y-12 lg:col-span-9">
+        <div className="min-w-0 space-y-10 sm:space-y-12 lg:col-span-9">
           <Reveal>
-            <h2 className="font-serif text-4xl leading-tight tracking-tight text-foreground sm:text-5xl">
+            <h2 className="font-serif text-[clamp(1.875rem,7vw,3rem)] leading-[1.1] tracking-tight text-foreground sm:text-5xl">
               {datasetSplit.total.toLocaleString()} X-rays,{" "}
               <span className="text-foreground/40">
                 balanced 50 / 50 across the binary task.
@@ -41,7 +41,7 @@ export function Dataset() {
               {splits.map((s) => (
                 <div
                   key={s.name}
-                  className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-5"
+                  className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-4 sm:p-5"
                 >
                   <div className="flex items-baseline justify-between">
                     <div className="text-xs uppercase tracking-[0.2em] text-foreground/40">
@@ -77,7 +77,7 @@ export function Dataset() {
 
           <Reveal>
             <div className="grid gap-6 lg:grid-cols-2">
-              <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-6">
+              <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-5 sm:p-6">
                 <h3 className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/50">
                   Train transform
                 </h3>
@@ -96,7 +96,7 @@ export function Dataset() {
                 </ol>
               </div>
 
-              <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-6">
+              <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-5 sm:p-6">
                 <h3 className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/50">
                   Val / test transform
                 </h3>

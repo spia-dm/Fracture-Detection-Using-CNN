@@ -42,15 +42,15 @@ export function Architecture() {
   }, []);
 
   return (
-    <section id="architecture" className="relative px-6 py-32 sm:py-40 lg:px-12">
-      <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-12">
+    <section id="architecture" className="relative px-5 py-20 sm:px-6 sm:py-28 lg:px-12 lg:py-40">
+      <div className="mx-auto grid max-w-7xl gap-8 sm:gap-12 lg:gap-16 lg:grid-cols-12">
         <Reveal className="lg:col-span-3">
           <SectionLabel n="03" label="Method" />
         </Reveal>
 
-        <div className="space-y-12 lg:col-span-9">
+        <div className="min-w-0 space-y-10 sm:space-y-12 lg:col-span-9">
           <Reveal>
-            <h2 className="font-serif text-4xl leading-tight tracking-tight text-foreground sm:text-5xl">
+            <h2 className="font-serif text-[clamp(1.875rem,7vw,3rem)] leading-[1.1] tracking-tight text-foreground sm:text-5xl">
               Canny edges,
               <br />
               <span className="text-foreground/40">three conv blocks, a sigmoid head.</span>
@@ -70,7 +70,7 @@ export function Architecture() {
               <div
                 key={s.step}
                 data-step
-                className="group relative flex items-start gap-4 rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-5"
+                className="group relative flex items-start gap-4 rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-4 sm:p-5"
               >
                 <span className="font-mono text-xs text-foreground/30">
                   {String(i + 1).padStart(2, "0")}
@@ -103,7 +103,7 @@ export function Architecture() {
           {/* Layer details table + training setup */}
           <div className="grid gap-6 lg:grid-cols-2">
             <Reveal>
-              <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-6">
+              <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-5 sm:p-6">
                 <h3 className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/50">
                   Layer specification
                 </h3>
@@ -130,7 +130,7 @@ export function Architecture() {
             </Reveal>
 
             <Reveal delay={0.05}>
-              <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-6">
+              <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-5 sm:p-6">
                 <h3 className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/50">
                   Training setup
                 </h3>

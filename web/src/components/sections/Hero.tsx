@@ -88,7 +88,7 @@ export function Hero() {
   return (
     <section
       ref={root}
-      className="relative isolate flex min-h-[100svh] flex-col justify-end overflow-hidden px-6 pb-24 pt-24 sm:pb-32 sm:pt-32 lg:px-12"
+      className="relative isolate flex min-h-[100svh] flex-col justify-start overflow-hidden px-5 pb-16 pt-32 sm:justify-end sm:px-6 sm:pb-32 sm:pt-32 lg:px-12"
     >
       <div
         data-grid
@@ -121,7 +121,7 @@ export function Hero() {
           Interactive research paper · 2024
         </div>
 
-        <h1 className="font-serif text-[clamp(3rem,10vw,9rem)] font-medium leading-[0.95] tracking-tight text-foreground">
+        <h1 className="font-serif text-[clamp(2.5rem,11vw,9rem)] font-medium leading-[0.95] tracking-tight text-foreground break-words">
           {titleWords.map((w, i) => (
             <span key={i} className="mr-[0.2em] inline-block overflow-hidden align-bottom">
               <span data-title-word className="inline-block">
@@ -150,7 +150,7 @@ export function Hero() {
           test set and 10-fold cross validation.
         </p>
 
-        <div className="mt-16 grid max-w-3xl grid-cols-2 gap-x-12 gap-y-8 sm:grid-cols-4">
+        <div className="mt-12 grid max-w-3xl grid-cols-2 gap-x-6 gap-y-6 sm:mt-16 sm:grid-cols-4 sm:gap-x-12 sm:gap-y-8">
           <Metric label="Best single-run accuracy" value={headlineMetrics.bestSingleAccuracy} suffix="%" />
           <Metric label="Best k-fold F1" value={headlineMetrics.bestKFoldF1} suffix="%" />
           <Metric label="Images" value={headlineMetrics.totalImages} suffix="" />

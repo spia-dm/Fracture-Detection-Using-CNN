@@ -56,7 +56,7 @@ export function MetricRadar({
       : `10-fold CV mean · ${epochs} epochs`;
 
   return (
-    <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-6">
+    <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-4 sm:p-6">
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
         <div>
           <h3 className="text-lg font-medium text-foreground">
@@ -81,7 +81,7 @@ export function MetricRadar({
         </div>
       </div>
 
-      <div className="h-[360px] w-full">
+      <div className="h-[280px] sm:h-[360px] w-full">
         <ResponsiveContainer width="100%" height="100%">
           <RadarChart data={data} outerRadius="75%">
             <PolarGrid stroke="var(--chart-grid)" />

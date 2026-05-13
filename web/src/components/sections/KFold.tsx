@@ -8,15 +8,15 @@ export function KFold() {
   const prelu5 = runs.find((r) => r.activation === "PReLU" && r.epochs === 5)!;
 
   return (
-    <section id="kfold" className="relative px-6 py-32 sm:py-40 lg:px-12">
-      <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-12">
+    <section id="kfold" className="relative px-5 py-20 sm:px-6 sm:py-28 lg:px-12 lg:py-40">
+      <div className="mx-auto grid max-w-7xl gap-8 sm:gap-12 lg:gap-16 lg:grid-cols-12">
         <Reveal className="lg:col-span-3">
           <SectionLabel n="05" label="Cross-validation" />
         </Reveal>
 
-        <div className="space-y-12 lg:col-span-9">
+        <div className="min-w-0 space-y-10 sm:space-y-12 lg:col-span-9">
           <Reveal>
-            <h2 className="font-serif text-4xl leading-tight tracking-tight text-foreground sm:text-5xl">
+            <h2 className="font-serif text-[clamp(1.875rem,7vw,3rem)] leading-[1.1] tracking-tight text-foreground sm:text-5xl">
               Single seed can lie.
               <br />
               <span className="text-foreground/40">
@@ -73,7 +73,7 @@ export function KFold() {
                   K-fold says it works.
                 </span>
               </h3>
-              <div className="mt-6 grid grid-cols-2 gap-x-8 gap-y-6">
+              <div className="mt-6 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
                 <div>
                   <div className="text-xs uppercase tracking-[0.2em] text-foreground/40">
                     Single run (seed = 42)
@@ -121,26 +121,32 @@ function Stat({
   sub?: string;
 }) {
   return (
-    <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-6">
+    <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-5 sm:p-6">
       <div className="text-xs uppercase tracking-[0.2em] text-foreground/40">
         {label}
       </div>
-      <div className="mt-4 font-mono text-3xl text-foreground">
+      <div className="mt-4 font-mono text-2xl tabular-nums text-foreground sm:text-3xl">
         {value}
-        {std && <span className="text-foreground/40 text-base"> {std}</span>}
       </div>
-      {sub && <div className="mt-2 text-xs text-foreground/40">{sub}</div>}
+      {std && (
+        <div className="mt-1 font-mono text-xs tabular-nums text-foreground/40 sm:text-sm">
+          {std}
+        </div>
+      )}
+      {sub && <div className="mt-2 break-words text-xs text-foreground/40">{sub}</div>}
     </div>
   );
 }
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-baseline justify-between gap-4 text-foreground/70">
-      <span className="text-xs uppercase tracking-[0.2em] text-foreground/40">
+    <div className="flex min-w-0 items-baseline justify-between gap-3 text-foreground/70">
+      <span className="shrink-0 text-xs uppercase tracking-[0.15em] text-foreground/40 sm:tracking-[0.2em]">
         {label}
       </span>
-      <span className="text-foreground">{value}</span>
+      <span className="truncate text-right tabular-nums text-foreground">
+        {value}
+      </span>
     </div>
   );
 }

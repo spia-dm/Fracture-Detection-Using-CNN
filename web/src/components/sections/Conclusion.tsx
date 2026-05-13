@@ -31,20 +31,20 @@ export function Conclusion() {
   return (
     <section
       id="conclusion"
-      className="relative overflow-hidden px-6 py-32 sm:py-40 lg:px-12"
+      className="relative overflow-hidden px-5 py-20 sm:px-6 sm:py-28 lg:px-12 lg:py-40"
     >
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-px bg-gradient-to-r from-transparent via-foreground/20 to-transparent"
       />
-      <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-12">
+      <div className="mx-auto grid max-w-7xl gap-8 sm:gap-12 lg:gap-16 lg:grid-cols-12">
         <Reveal className="lg:col-span-3">
           <SectionLabel n="06" label="Conclusion" />
         </Reveal>
 
-        <div className="space-y-12 lg:col-span-9">
+        <div className="min-w-0 space-y-10 sm:space-y-12 lg:col-span-9">
           <Reveal>
-            <h2 className="font-serif text-4xl leading-tight tracking-tight text-foreground sm:text-6xl">
+            <h2 className="font-serif text-[clamp(1.875rem,8vw,3.75rem)] leading-[1.1] tracking-tight text-foreground sm:text-6xl">
               Shallow CNN + edges
               <br />
               <span className="text-foreground/40">
@@ -65,7 +65,7 @@ export function Conclusion() {
 
           {/* Baseline comparison */}
           <Reveal>
-            <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-6">
+            <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-5 sm:p-6">
               <div className="flex items-baseline justify-between gap-4">
                 <h3 className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/50">
                   Baseline comparison · {baselineComparison.epochs} epochs
@@ -117,7 +117,7 @@ export function Conclusion() {
 
           {/* Confusion matrix */}
           <Reveal>
-            <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-6">
+            <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-5 sm:p-6">
               <h3 className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/50">
                 Confusion matrix · best held-out config
               </h3>
@@ -125,23 +125,27 @@ export function Conclusion() {
                 {confusionMatrix.config}
               </p>
 
-              <div className="mt-6 grid grid-cols-[auto_1fr_1fr] gap-2 text-sm">
+              <div className="mt-6 grid grid-cols-[auto_1fr_1fr] gap-1.5 text-sm sm:gap-2">
                 <div />
-                <div className="pb-2 text-center text-xs uppercase tracking-[0.2em] text-foreground/40">
-                  Predicted fractured
+                <div className="pb-2 text-center text-[10px] uppercase tracking-[0.15em] text-foreground/40 sm:text-xs sm:tracking-[0.2em]">
+                  <span className="sm:hidden">Pred. frac.</span>
+                  <span className="hidden sm:inline">Predicted fractured</span>
                 </div>
-                <div className="pb-2 text-center text-xs uppercase tracking-[0.2em] text-foreground/40">
-                  Predicted healthy
+                <div className="pb-2 text-center text-[10px] uppercase tracking-[0.15em] text-foreground/40 sm:text-xs sm:tracking-[0.2em]">
+                  <span className="sm:hidden">Pred. healthy</span>
+                  <span className="hidden sm:inline">Predicted healthy</span>
                 </div>
 
-                <div className="flex items-center justify-end pr-2 text-xs uppercase tracking-[0.2em] text-foreground/40">
-                  Actual fractured
+                <div className="flex items-center justify-end pr-1 text-[10px] uppercase tracking-[0.15em] text-foreground/40 sm:pr-2 sm:text-xs sm:tracking-[0.2em]">
+                  <span className="sm:hidden">Actual<br />frac.</span>
+                  <span className="hidden sm:inline">Actual fractured</span>
                 </div>
                 <ConfusionCell value={confusionMatrix.truePositive} total={matrixTotal} kind="tp" label="TP" />
                 <ConfusionCell value={confusionMatrix.falseNegative} total={matrixTotal} kind="fn" label="FN" />
 
-                <div className="flex items-center justify-end pr-2 text-xs uppercase tracking-[0.2em] text-foreground/40">
-                  Actual healthy
+                <div className="flex items-center justify-end pr-1 text-[10px] uppercase tracking-[0.15em] text-foreground/40 sm:pr-2 sm:text-xs sm:tracking-[0.2em]">
+                  <span className="sm:hidden">Actual<br />healthy</span>
+                  <span className="hidden sm:inline">Actual healthy</span>
                 </div>
                 <ConfusionCell value={confusionMatrix.falsePositive} total={matrixTotal} kind="fp" label="FP" />
                 <ConfusionCell value={confusionMatrix.trueNegative} total={matrixTotal} kind="tn" label="TN" />
@@ -161,7 +165,7 @@ export function Conclusion() {
               {takeaways.map((t, i) => (
                 <div
                   key={i}
-                  className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-5"
+                  className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-4 sm:p-5"
                 >
                   <div className="font-mono text-xs text-foreground/30">
                     {String(i + 1).padStart(2, "0")}
@@ -176,7 +180,7 @@ export function Conclusion() {
 
           {/* Limitations */}
           <Reveal>
-            <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-6">
+            <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-5 sm:p-6">
               <h3 className="text-sm font-medium uppercase tracking-[0.2em] text-foreground/50">
                 Limitations & future work
               </h3>
@@ -228,9 +232,9 @@ function ComparisonColumn({
 }) {
   const top = rows[0][1];
   return (
-    <div className="space-y-3">
-      <div className="text-sm font-medium text-foreground">{title}</div>
-      <div className="font-mono text-4xl text-foreground">
+    <div className="min-w-0 space-y-3">
+      <div className="break-words text-sm font-medium text-foreground">{title}</div>
+      <div className="font-mono text-3xl tabular-nums text-foreground sm:text-4xl">
         {top.toFixed(2)}
         <span className="text-foreground/40">%</span>
       </div>
@@ -238,10 +242,10 @@ function ComparisonColumn({
         {rows.map(([label, value]) => (
           <div
             key={label}
-            className="flex items-center gap-3 text-xs"
+            className="flex items-center gap-2 text-xs sm:gap-3"
           >
-            <span className="w-20 text-foreground/50">{label}</span>
-            <div className="relative h-1.5 flex-1 overflow-hidden rounded-full bg-foreground/5">
+            <span className="w-16 shrink-0 text-foreground/50 sm:w-20">{label}</span>
+            <div className="relative h-1.5 min-w-0 flex-1 overflow-hidden rounded-full bg-foreground/5">
               <div
                 className={
                   tone === "accent"
@@ -251,7 +255,7 @@ function ComparisonColumn({
                 style={{ width: `${value}%` }}
               />
             </div>
-            <span className="w-16 text-right font-mono text-foreground/70">
+            <span className="w-14 shrink-0 text-right font-mono tabular-nums text-foreground/70 sm:w-16">
               {value.toFixed(2)}%
             </span>
           </div>
@@ -300,7 +304,7 @@ function ConfusionCell({
   const pct = ((value / total) * 100).toFixed(1);
   return (
     <div
-      className={`rounded-xl border p-5 text-center transition-colors ${
+      className={`rounded-xl border p-3 text-center transition-colors sm:p-5 ${
         positive
           ? "border-cyan-400/30 bg-cyan-400/[0.08]"
           : "border-foreground/10 bg-foreground/[0.04]"
@@ -309,8 +313,8 @@ function ConfusionCell({
       <div className="text-[10px] uppercase tracking-[0.2em] text-foreground/40">
         {label}
       </div>
-      <div className="mt-2 font-mono text-3xl text-foreground">{value}</div>
-      <div className="mt-1 text-xs text-foreground/40">{pct}%</div>
+      <div className="mt-2 font-mono text-2xl text-foreground sm:text-3xl">{value}</div>
+      <div className="mt-1 text-[10px] tabular-nums text-foreground/40 sm:text-xs">{pct}%</div>
     </div>
   );
 }

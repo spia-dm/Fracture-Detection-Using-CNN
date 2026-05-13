@@ -7,7 +7,7 @@ import { NetworkScene } from "./NetworkScene";
 
 export function Network() {
   return (
-    <div className="relative h-[480px] w-full overflow-hidden rounded-2xl border border-foreground/10 bg-foreground/[0.04]">
+    <div className="relative h-[320px] sm:h-[400px] lg:h-[480px] w-full overflow-hidden rounded-2xl border border-foreground/10 bg-foreground/[0.04]">
       <Canvas dpr={[1, 2]}>
         <PerspectiveCamera makeDefault position={[0, 3.5, 14]} fov={38} />
         <ambientLight intensity={0.55} />

@@ -65,7 +65,7 @@ export function AccuracyChart({ mode = "single" }: { mode?: "single" | "kfold" }
       : "10-fold cross validation · mean over folds";
 
   return (
-    <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-6">
+    <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-4 sm:p-6">
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
         <div>
           <h3 className="text-lg font-medium text-foreground">
@@ -84,13 +84,14 @@ export function AccuracyChart({ mode = "single" }: { mode?: "single" | "kfold" }
                   : "text-foreground/60 hover:text-foreground"
               }`}
             >
-              {metricLabels[m]}
+              <span className="sm:hidden">{m}</span>
+              <span className="hidden sm:inline">{metricLabels[m]}</span>
             </button>
           ))}
         </div>
       </div>
 
-      <div className="h-[360px] w-full">
+      <div className="h-[280px] sm:h-[360px] w-full">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data} margin={{ top: 8, right: 16, left: -8, bottom: 8 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="var(--chart-grid)" />

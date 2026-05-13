@@ -45,7 +45,7 @@ export function KFoldChart() {
   }));
 
   return (
-    <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-6">
+    <div className="rounded-2xl border border-foreground/10 bg-foreground/[0.04] p-4 sm:p-6">
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
         <div>
           <h3 className="text-lg font-medium text-foreground">
@@ -67,13 +67,14 @@ export function KFoldChart() {
                   : "text-foreground/60 hover:text-foreground"
               }`}
             >
-              {metricMeta[m]}
+              <span className="sm:hidden">{m}</span>
+              <span className="hidden sm:inline">{metricMeta[m]}</span>
             </button>
           ))}
         </div>
       </div>
 
-      <div className="h-[440px] w-full">
+      <div className="h-[340px] sm:h-[440px] w-full">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={data}

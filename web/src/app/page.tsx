@@ -9,7 +9,7 @@ import { Conclusion } from "@/components/sections/Conclusion";
 
 export default function Home() {
   return (
-    <main id="top" className="relative bg-background text-foreground">
+    <main id="top" className="relative overflow-x-clip bg-background text-foreground">
       <Nav />
       <Hero />
       <Abstract />
